@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -16,7 +16,7 @@
     <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">id</th>
       <th scope="col">Title</th>
       <th scope="col">Rating</th>
       <th scope="col">Age</th>
@@ -25,30 +25,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><button type="button" class="btn btn-dark">But1</button></td>
-      <td><button type="button" class="btn btn-dark">But2</button></td>
-      
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><button type="button" class="btn btn-dark">But1</button></td>
-      <td><button type="button" class="btn btn-dark">But2</button></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><button type="button" class="btn btn-dark">But1</button></td>
-      <td><button type="button" class="btn btn-dark">But2</button></td>
+    <tr th:each="film : ${films}">
+      <td th:text="${film.id}"></td>
+      <td th:text="${film.title}"></td>
+      <td th:text="${film.rating}"></td>
+      <td th:text="${film.age}"></td>
+      <td><a th:href="@{'/editFilms?id=' + ${film.id}}"><button type="button" class="btn btn-dark">Изменить</button></a></td>
+      <td><a th:href="@{'/deleteFilm?id=' + ${film.id}}"><button type="button" class="btn btn-dark">Удалить</button></a></td>
     </tr>
   </tbody>
 </table>

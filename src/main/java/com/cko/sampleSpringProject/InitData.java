@@ -36,12 +36,21 @@ public class InitData {
 
     public void initData() {
 
-        Film film = new Film("QQ",9,12);
-        filmDAO.save(film);
-
-
+        initFilms();
         initUserAndRoles();
 
+
+    }
+
+    private void initFilms() {
+        Film film = new Film("Начало",9,16);
+        filmDAO.save(film);
+        Film film1 = new Film("Зеленая миля",10,18);
+        filmDAO.save(film1);
+        Film film2 = new Film("Заводной апельсин",10,18);
+        filmDAO.save(film2);
+        Film film3 = new Film("Космическая одиссея 2001",10,18);
+        filmDAO.save(film3);
 
     }
 
